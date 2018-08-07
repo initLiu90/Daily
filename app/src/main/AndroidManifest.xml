@@ -14,13 +14,17 @@
         android:theme="@style/AppTheme">
         <activity
             android:name=".activity.SplashActivity"
-            android:theme="@style/AppThemeFullScreen">
+            android:theme="@style/AppThemeFullScreen"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+        <activity android:name=".activity.MainActivity"/>
     </application>
 
 </manifest>

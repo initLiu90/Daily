@@ -6,7 +6,8 @@
     android:background="@drawable/start_window">
 
 
-    <com.lzp.daily.view.CountdownCircleView
+    <com.lzp.library.view.CountdownCircleView
+        android:id="@+id/activity_splash_countdown"
         android:layout_width="35dp"
         android:layout_height="35dp"
         android:layout_gravity="right"
