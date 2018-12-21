@@ -27,7 +27,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun setupRecyclerView(binding: ActivityMainBinding) {
         mAdapter = HomeAdapter()
-        binding.recyclerview.layoutManager = LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false)
-        binding.recyclerview.adapter = mAdapter
+        with(binding) {
+            this.recyclerview.layoutManager = LinearLayoutManager(this@MainActivity, LinearLayoutManager.VERTICAL, false)
+            this.recyclerview.adapter = mAdapter
+        }
+
     }
 }
