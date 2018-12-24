@@ -22,8 +22,12 @@ class HomeAdapter : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
             }
         }
 
-    fun addStories(stories: List<HistoryMessage.Stories>) {
-        this.stories.addAll(stories)
+    fun addStories(stories: List<HistoryMessage.Stories>, front: Boolean = false) {
+        if (front) {
+            this.stories.addAll(0, stories)
+        } else {
+            this.stories.addAll(stories)
+        }
         notifyDataSetChanged()
     }
 

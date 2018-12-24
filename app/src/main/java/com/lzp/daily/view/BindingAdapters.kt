@@ -4,12 +4,20 @@ import android.databinding.BindingAdapter
 import android.databinding.InverseBindingAdapter
 import android.databinding.InverseBindingListener
 import android.support.v4.view.ViewCompat
+import android.support.v4.widget.SwipeRefreshLayout
 import android.support.v7.widget.RecyclerView
 import android.util.Log
 import com.lzp.daily.model.bean.HistoryMessage
 import com.lzp.daily.view.home.HomeAdapter
 
 object HomeBindingAdapter {
+    @BindingAdapter("lastItems")
+    @JvmStatic
+    fun lastItems(recyclerView: RecyclerView, stories: List<HistoryMessage.Stories>) {
+        val adapter = recyclerView.adapter as? HomeAdapter
+        adapter?.addStories(stories, front = true)
+    }
+
     @BindingAdapter("items")
     @JvmStatic
     fun items(recyclerView: RecyclerView, stories: List<HistoryMessage.Stories>) {
@@ -45,5 +53,19 @@ object HomeBindingAdapter {
                 }
             }
         })
+    }
+
+    @BindingAdapter("isRefreshing")
+    @JvmStatic
+    fun isRefreshing(swipeRefreshLayout: SwipeRefreshLayout, isRefreshing: Boolean) {
+        swipeRefreshLayout.isRefreshing = isRefreshing
+    }
+
+    @BindingAdapter("onRefresh")
+    @JvmStatic
+    fun onRefresh(swipeRefreshLayout: SwipeRefreshLayout, onRefreshListener: SwipeRefreshLayout.OnRefreshListener?) {
+        swipeRefreshLayout.setOnRefreshListener {
+            onRefreshListener?.onRefresh()
+        }
     }
 }

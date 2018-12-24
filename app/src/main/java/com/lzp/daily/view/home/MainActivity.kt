@@ -8,7 +8,6 @@ import android.support.v7.widget.LinearLayoutManager
 import com.lzp.daily.R
 import com.lzp.daily.databinding.ActivityMainBinding
 import com.lzp.daily.viewmodel.home.HomeViewmodel
-import com.lzp.daily.widget.HomeItemDecoration
 
 class MainActivity : AppCompatActivity() {
     private lateinit var mAdapter: HomeAdapter
